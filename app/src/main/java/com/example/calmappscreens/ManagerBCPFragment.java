@@ -77,7 +77,7 @@ public class ManagerBCPFragment extends Fragment {
         list.add("Typhoon-Drill");
         list.add("Typhoon-Emergency");
 
-
+        //Spinner
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, list);
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -125,7 +125,7 @@ public class ManagerBCPFragment extends Fragment {
         });
 
 
-        //
+        //Send Permission
 
         send.setEnabled(false);
         if (checkPermission(Manifest.permission.SEND_SMS)) {
@@ -139,6 +139,7 @@ public class ManagerBCPFragment extends Fragment {
     }
 
 
+    //Get Number of the Employee in DB
     public void onClick() {
         for(count = 0; count<=Integer.parseInt(A); count++){
             reff = FirebaseDatabase.getInstance().getReference().child("Employee").child("Employee " + count);
@@ -162,6 +163,7 @@ public class ManagerBCPFragment extends Fragment {
             });
         }
 
+        //Send Button
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -174,7 +176,7 @@ public class ManagerBCPFragment extends Fragment {
                 Toast.makeText(getActivity(), "Message Sent!", Toast.LENGTH_SHORT).show();
 
 
-                //Text
+                //Text (SMS)
                 if(checkPermission(Manifest.permission.SEND_SMS)){
                     SmsManager smsManager = SmsManager.getDefault();
                     for(sendm=0; sendm<counting; sendm++){
@@ -188,6 +190,7 @@ public class ManagerBCPFragment extends Fragment {
             }
         });
 
+        //Ok Respond Button
         ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -196,6 +199,7 @@ public class ManagerBCPFragment extends Fragment {
             }
         });
 
+        //Not Okay Respond Button
         nok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -208,7 +212,7 @@ public class ManagerBCPFragment extends Fragment {
     }
 
 
-
+    //Count the Number of Employee in DB
     public void Count(){
         reff = FirebaseDatabase.getInstance().getReference().child("Employee");
         reff.addValueEventListener(new ValueEventListener() {
@@ -229,7 +233,7 @@ public class ManagerBCPFragment extends Fragment {
 
 
 
-
+    //Check Permission
     public boolean checkPermission(String permission){
         int check = ContextCompat.checkSelfPermission(getActivity(), permission);
         return (check == PackageManager.PERMISSION_GRANTED);

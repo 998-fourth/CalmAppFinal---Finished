@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
         CountText.setText("No of attempts remaining 5");
 
-
+        //Log in
         Login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    //GetCount
+    //Get Count of the Employee in DB
     public void Count(){
         reff = FirebaseDatabase.getInstance().getReference("/Employee");
         reff.addValueEventListener(new ValueEventListener() {

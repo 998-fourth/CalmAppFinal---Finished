@@ -5,6 +5,7 @@ public class Emergency {
     private String _message;
 
 
+
     public Emergency() {
     }
 

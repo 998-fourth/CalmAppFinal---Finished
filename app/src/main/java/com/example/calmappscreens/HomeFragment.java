@@ -52,6 +52,7 @@ public class HomeFragment extends Fragment {
 
         String Name = getActivity().getIntent().getExtras().getString("User");
 
+        //Determine which Account is Logged in.
         if(Name.equals("11565884")){
             empNum = "0";
         }else if(Name.equals("11565703")){

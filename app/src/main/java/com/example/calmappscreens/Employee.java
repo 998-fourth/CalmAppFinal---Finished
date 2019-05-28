@@ -12,6 +12,8 @@ public class Employee {
     private String _mess;
     String _loc;
 
+    //Java File that connect the program to the Employee Table
+
     public Employee() {
     }
 

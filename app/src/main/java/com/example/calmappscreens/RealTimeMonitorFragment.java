@@ -57,9 +57,11 @@ public class RealTimeMonitorFragment extends Fragment {
             }
         });
 
+        //Display Results
          btnrun.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //Ok Respond
                 names = "Safe: \n";
                 Log.d("", empname[0] + "'s response is: " + respond[0] + "\n");
                 for(int i=0; i<Integer.parseInt(A); i++){
@@ -70,6 +72,7 @@ public class RealTimeMonitorFragment extends Fragment {
                     }
 
                 }
+                //Not Okay/No Respond
                 names = names + "\n\nNot Safe/No Response: \n";
                 for(int i=0; i<=Integer.parseInt(A); i++){
                     if(respond[i].equalsIgnoreCase("no")||respond[i].equalsIgnoreCase("")){
@@ -85,6 +88,7 @@ public class RealTimeMonitorFragment extends Fragment {
         return view;
     }
 
+    //First Click to Background to Get all the Names in DB
     public  void getNames(){
         for (int B = 0; B <=Integer.parseInt(A); B++) {
             reff = FirebaseDatabase.getInstance().getReference().child("Employee").child(("Employee " + B));
@@ -116,6 +120,7 @@ public class RealTimeMonitorFragment extends Fragment {
         }
     }
 
+    //Count the number of Employee in DB
     public void Count(){
         reff = FirebaseDatabase.getInstance().getReference("Employee");
         reff.addValueEventListener(new ValueEventListener() {

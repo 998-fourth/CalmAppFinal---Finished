@@ -47,6 +47,7 @@ public class SecondActivity extends AppCompatActivity implements NavigationView.
         String Pass = getIntent().getExtras().getString("User");
 
 
+        //Determine if the Account Exist in the DB
         if(Pass.equals("11565884") || Pass.equals("11565509") || Pass.equals("11565703") || Pass.equals("11565500") || Pass.equals("11566014") || Pass.equals("11565137") || Pass.equals("11566302") || Pass.equals("11546363")) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                     new HomeFragment()).commit();
